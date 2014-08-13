@@ -1,4 +1,4 @@
-BIB=BIBINPUTS=".:PaperInfrastructure/References//"
+BIB=BIBINPUTS=".:PaperInfrastructure/References//:"
 
 all: paper
 
