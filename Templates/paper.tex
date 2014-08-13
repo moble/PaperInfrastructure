@@ -3,10 +3,16 @@ amssymb, amsfonts, nofootinbib, floatfix, superscriptaddress, %
 twoside]{revtex4-1}
 \pdfoutput=1
 
+%% This quiets a warning from bibtex
+\bibliographystyle{apsrev4-1}
+
 \input{UsePackages}
 \input{Preamble}
 \input{Macros}
 \input{Affiliations}
+
+%% Force reprocessing of all plots
+% \tikzset{external/force remake}
 
 %%%%%%%%%%%%%%%%
 
