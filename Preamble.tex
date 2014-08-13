@@ -1,0 +1,79 @@
+%auto-ignore
+
+\makeatletter
+
+%% Smaller space between section number and name
+\def\@seccntformat#1{\csname the#1\endcsname.~}%
+
+%% Smaller space between preceding text and new section headings
+\def\section{%
+  \@startsection {section}
+  {1} {\z@} {0.55cm \@plus1ex \@minus .02ex}%
+    {0.225cm} { \normalfont\bfseries \centering}%
+}%
+\def\subsection{%
+  \@startsection {subsection}
+  {2} {\z@ } {0.45cm \@plus 0.8ex \@minus 0.2ex}%
+  {0.1125cm}{\normalfont \bfseries \centering }}
+\def\subsubsection{%
+  \@startsection {subsubsection}
+  {3} {\z@ } {0.4cm \@plus 0.6ex \@minus 0.1ex}%
+  {0.075cm}{\normalfont \it \centering }}
+
+%% Headers and footers
+\newcommand{\surnames}[1]{\def\@surnamelist{#1}\relax}
+\surnames{\ }
+\ifx \@shorttitle \@empty
+  % \def\@oddhead{\small \MakeUppercase{\@title} \hfill}
+  % Do nothing
+\else
+  \def\@oddhead{\small \MakeUppercase{\@shorttitle} \hfill}
+\fi
+\ifx \@surnamelist \@empty
+  % Do nothing
+\else
+  \def\@evenhead{\small \MakeUppercase{\@surnamelist} \hfill}
+\fi
+\def\@oddfoot{\reset@font\hfil\thepage\hfil}%
+\def\@evenfoot{\reset@font\hfil\thepage\hfil}%
+\g@addto@macro\maketitle{\global\@specialpagetrue\gdef\@specialstyle{plain}}
+
+%% Less hyphenation
+\hyphenpenalty=1000  % Default: 50
+%\tolerance=9000      % Default: 9999
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This is all for the hyperref package and nice colors
+
+%% First, patch a bug from revtex4 to allow use of \nameref
+\usepackage{xpatch}% http://ctan.org/pkg/xpatch
+\makeatletter
+\xpatchcmd{\@ssect@ltx}{\@xsect}{\edef\@currentlabelname{#8}\@xsect}{}{}% Patch \<section>*
+\xpatchcmd{\@sect@ltx}{\@xsect}{\edef\@currentlabelname{#8}\@xsect}{}{}% Patch \<section>
+\makeatother
+
+\usepackage[colorlinks, plainpages=false,
+hyperfigures=true]{hyperref}
+% \usepackage[pagebackref=true, colorlinks, plainpages=false,
+% hyperfigures=true]{hyperref}
+% \renewcommand*{\backref}[1]{}
+% \renewcommand*{\backrefalt}[4]{%
+%   \ifcase #1 \or (Cited on p.~#2.) \else %
+%   (Cited on pp.~#2.) \fi %
+% }
+\hypersetup{linkcolor=LinkColor}
+\hypersetup{citecolor=CiteColor}
+\hypersetup{urlcolor=UrlColor}
+\hypersetup{setpagesize=false}
+% \hypersetup{unicode} % Clashes with '\G' command defined in Macros
+\hypersetup{pdfborder=0 0 0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatother
+
+%\numberwithin{equation}{section}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "paper"
+%%% End:

@@ -1,0 +1,88 @@
+%auto-ignore
+
+\usepackage{xparse} % For \NewDocumentCommand, etc.
+
+\makeatletter
+
+\newcommand{\vectorspace}[1]{\mathcal{#1}}
+\newcommand{\field}[1]{\mathbb{#1}}
+
+\newcommand{\framevec}[1]{\bm{\mathsf{#1}}}
+
+\newcommand{\grade}[2]{\ensuremath{\left\langle #1 \right\rangle_{#2}}}
+\newcommand{\scalar}[1]{\ensuremath{\left\langle #1 \right\rangle}}
+\newcommand{\grading}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\graded}[2]{\ensuremath{#1_{\grading{#2}}}}
+
+\newcommand{\vectorderiv}{\ensuremath{\nabla}}
+
+
+%% Various involutions
+\newcommand{\conjug@@te}[3]{\raisebox{#1}{$#2\text{\tiny{#3}}$}}
+\newcommand{\conjug@te}[3]{\overline{#1}^{\mathpalette{\conjug@@te{#3}}{#2}}}
+\newcommand{\reverse}[1]{\conjug@te{\multivec{#1}}{rev}{.4pt}}
+\newcommand{\involution}[1]{\conjug@te{\multivec{#1}}{invo}{.4pt}}
+\newcommand{\Cc}[1]{\conjug@te{\multivec{#1}}{Cc}{.1pt}}
+\newcommand{\Herm}[1]{\conjug@te{\multivec{#1}}{Herm}{.1pt}}
+\newcommand{\spinconjugate}[1]{\conjug@te{\multivec{#1}}{sc}{.4pt}}
+
+
+%% Define \multivector command with optional grading
+\newcommand{\@multivector}[1]{\ensuremath{#1}}
+\ExplSyntaxOn
+\NewDocumentCommand{\multivec}{ mo }
+    {
+                \IfNoValueTF {#2}  { \@multivector{#1} }
+                    { \graded{\@multivector{#1}}{#2} }
+    }
+\NewDocumentCommand{\multivecrev}{ mo }
+    {
+                \IfNoValueTF {#2}  { \reverse{\@multivector{#1}} }
+                    { \graded{\reverse{\@multivector{#1}}}{#2} }
+    }
+\ExplSyntaxOff
+
+\newcommand{\pseudoscalar}{\ensuremath{\multivec{I}}}
+
+\newcommand{\cross}{\ensuremath{\times_{\text{c}}}}
+
+\newcommand{\basisvec}[1]{\ensuremath{\multivec{#1}}}
+\newcommand{\threevec}[1]{\ensuremath{\multivec{#1}}}
+\newcommand{\unitvec}[1]{\ensuremath{\hat{#1}}}
+\newcommand{\axis}[1]{\ensuremath{\hat{#1}}}
+
+\newcommand{\spinor}[1]{\ensuremath{\multivec{#1}}}
+\newcommand{\rotor}[1]{\ensuremath{\multivec{#1}}}
+
+
+% A linear function is just a general function (can take any type and
+% number of arguments, and have any return value) that is linear in
+% all arguments.
+\newcommand{\linfunc}[1]{\ensuremath{\mathsf{#1}}}
+
+% A linear transformation is a linear function that returns exactly
+% the same grade as its input
+\newcommand{\lintransf}[1]{\ensuremath{\mathsfsl{#1}}}
+\DeclareMathAlphabet{\mathsfsl}{\encodingdefault}{\sfdefault}{m}{sl}
+
+% Operators on linear functions and transformations
+\newcommand{\differential}[1]{\ensuremath{\underline{#1}}}
+\newcommand{\adjoint}[1]{\ensuremath{\overline{#1}}}
+
+
+% Write conditions restricting the domain of validity of the equation,
+% which get typeset subtly next to the equation number.
+\definecolor{lightgrey}{gray}{0.75}
+\def\maketag@@@#1{\@Restriction\hbox{\m@th\normalfont#1}}
+\def\Restriction#1{\def\@Restriction{\llap{\textcolor{lightgrey}{$#1$}~}}}
+\Restriction{}
+
+
+
+\makeatother
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "paper"
+%%% End:

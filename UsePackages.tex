@@ -1,0 +1,158 @@
+%auto-ignore
+
+%% Basic font packages
+\newcommand{\hmmax}{0}
+\newcommand{\bmmax}{0}
+\usepackage[T3,T1]{fontenc}
+%\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it} % For \mathpzc fonts
+\usepackage{mathrsfs} % For \mathscr fonts
+\usepackage{bm} % For \bm fonts
+\makeatletter
+\@ifclassloaded{beamer}
+  { % if this is a beamer document, use sans-serif fonts
+    \typeout{UsePackages: Detected beamer}
+    \usepackage{tgheros}
+    \renewcommand*\familydefault{\sfdefault}
+  }
+  { % otherwise:
+    \typeout{UsePackages: Did not detect beamer}
+    \ifx\asybeamer\undefined % use times for articles
+    \typeout{UsePackages: Detected article}
+    \usepackage[varg]{txfonts} % For math
+    \usepackage{tgtermes} % For text
+    \else % use beamer fonts for asy documents with beamer
+    \typeout{Fonts: Detected asy for beamer}
+    \usepackage{tgheros}
+    \renewcommand*\familydefault{\sfdefault}
+    \fi
+  }
+\usepackage{microtype} % For nicer alignment of text
+\def\MT@register@subst@font{
+  \MT@exp@one@n\MT@in@clist\font@name\MT@font@list
+  \ifMT@inlist@\else\xdef\MT@font@list{\MT@font@list\font@name,}\fi}
+\makeatother
+
+% %% Compact the text (smaller intra-word spacing)
+% \AtBeginDocument{
+%   \setlength{\spaceskip}
+%   {0.875\fontdimen2\font
+%     plus 0.925\fontdimen3\font
+%     minus 1\fontdimen4\font}
+% }
+
+%% Spread out the text lines slightly
+\linespread{1.0425}
+
+%% No extra space after periods
+%\frenchspacing
+
+%% A few necessary packages
+\usepackage{graphicx} %
+\usepackage[x11names,svgnames,rgb]{xcolor} %
+% \usepackage[all]{onlyamsmath} % Error on bad non-ams math
+\usepackage{xspace}
+%% And a few optional ones
+\usepackage{braket}
+\usepackage{accents}
+%\usepackage{rotating} % 'sidewaystable' support
+\usepackage{siunitx}
+\usepackage{mathtools}
+\DeclareSymbolFontAlphabet{\mathrm}{operators}
+
+%% Define a few colors
+\definecolor{CiteColor}{rgb}{0.18039, 0.18824, 0.57255}
+%\definecolor{CiteColor}{rgb}{0.250, 0.250, 0.800}
+\definecolor{UrlColor} {rgb}{0.741, 0.173, 0.000}
+\definecolor{DarkUrlColor} {rgb}{0.500, 0.110, 0.000}
+\definecolor{LinkColor}{rgb}{0.25098, 0.47843, 0.04706}
+%\definecolor{LinkColor}{rgb}{0.000, 0.502, 0.118}
+
+
+%% To get the current font parameters and linewidth in a LaTeX
+%% document, put \ShowFont at the appropriate place.  The results will
+%% be printed in the log file (and/or to screen).
+\makeatletter %
+\newcommand{\ShowFont}{%
+  \typeout{The main font is \f@encoding \space \f@family \space %
+    \f@series \space \f@shape \space at \f@size pt.}%
+  \typeout{The math font sizes are \tf@size pt (main), \sf@size pt %
+    (script), and \ssf@size pt (scriptscript).}%
+  \typeout{The linewidth is \the\linewidth}} %
+\makeatother %
+%% See the LaTeX2e font selection guide for more details.
+%% Note also that captions in revtex4 are typeset with \small; when
+%%   most of the document is 10pt, \small is 9pt.
+%% In beamer, the default font is cmss and the math font size 10.95pt.
+%% In revtex4, we have the following widths:
+%%            onecolumn   twocolumn
+%%     10pt     510pt       246pt
+%%     12pt     468pt       229pt
+%% PRD editors resize things to fit in a 200x200pt box by default, but
+%%   I like to keep figures bigger.
+
+
+%% PGF/TIKZ
+\usepackage{tikz} %
+\usepackage{tikzscale} %
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots} %
+\usepackage{pgfplotstable} %
+\pgfplotsset{compat=1.8} %
+\usetikzlibrary{pgfplots.groupplots} %
+%\usetikzlibrary{decorations.shapes} %
+%\usetikzlibrary{decorations.markings} %
+%% Automatically write figures as PDFs for import next time
+\usetikzlibrary{pgfplots.external}
+\tikzexternalize
+% \tikzsetfigurename{Figure}
+% \tikzset{external/force remake} % To force reprocessing of plots
+%% Some nice defaults for me
+\def\axisdefaultwidth{246pt} %
+\def\axisdefaultheight{200pt} %
+\pgfplotsset{scaled ticks=false} %
+\pgfplotsset{axis line style={line width=1pt, black}} %
+\pgfplotsset{tick style={line width=1pt, black}} %
+\pgfplotsset{minor tick style={black}} %
+\pgfplotsset{every axis/.append style={%
+    axis on top, %
+    legend cell align=left, %
+    legend style={ %
+      at={(0.03,0.97)}, %
+      anchor=north west}, %
+    no markers, %
+  } %
+} %
+\pgfplotsset{every axis plot/.append style={thick, smooth}} %
+
+%% Command to allow explicitly setting the file counter, as, e.g.,
+%%   \tikzset{external/figure name={Figure}}
+%%   \tikzset{external/set counter={Figure}{2}}
+\makeatletter
+\pgfqkeys{/tikz/external}{%
+  set counter/.code 2 args={%
+    \expandafter\gdef\csname c@tikzext@no@#1\endcsname{#2}%
+  },%
+}
+\makeatother
+
+% %% The following colors come from <http://colorbrewer2.org/>, which
+% %% creates lists of nice colors for plots, etc.
+% \definecolor{cycleA}{RGB}{228,26,28}
+% \definecolor{cycleB}{RGB}{55,126,184}
+% \definecolor{cycleC}{RGB}{77,175,74}
+% \definecolor{cycleD}{RGB}{152,78,163}
+% \definecolor{cycleE}{RGB}{255,127,0}
+% \pgfplotscreateplotcyclelist{colorbrewer_set1}{%
+%   {cycleA},{cycleB},{cycleC},{cycleD},{cycleE}%
+% }
+
+%% After I created the above chunk, a new pgf library was introduced,
+%% which supplies colorbrewer cycles automatically.
+\usepgfplotslibrary{colorbrewer}
+%% Use with something like
+% \begin{axis}[colorbrewer cycle list=Dark2]
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "paper"
+%%% End:
