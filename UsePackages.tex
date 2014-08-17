@@ -97,13 +97,14 @@
 \usepackage{tikz-3dplot}
 \usepackage{pgfplots} %
 \usepackage{pgfplotstable} %
-\pgfplotsset{compat=1.8} %
+\pgfplotsset{compat=1.10} %
 \usetikzlibrary{calc}
 \usetikzlibrary{pgfplots.groupplots} %
 %\usetikzlibrary{decorations.shapes} %
 %\usetikzlibrary{decorations.markings} %
 %% Automatically write figures as PDFs for import next time
 \usetikzlibrary{pgfplots.external}
+\usepgfplotslibrary{fillbetween}
 \tikzexternalize
 % \tikzsetfigurename{Figure}
 % \tikzset{external/force remake} % To force reprocessing of plots
