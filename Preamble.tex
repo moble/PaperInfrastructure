@@ -45,12 +45,15 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% This is all for the hyperref package and nice colors
 
-%% First, patch a bug from revtex4 to allow use of \nameref
-\usepackage{xpatch}% http://ctan.org/pkg/xpatch
-\makeatletter
-\xpatchcmd{\@ssect@ltx}{\@xsect}{\edef\@currentlabelname{#8}\@xsect}{}{}% Patch \<section>*
-\xpatchcmd{\@sect@ltx}{\@xsect}{\edef\@currentlabelname{#8}\@xsect}{}{}% Patch \<section>
-\makeatother
+%% The following conflicts with \texorpdfstring in section headers
+% %% First, patch a bug from revtex4 to allow use of \nameref
+% \usepackage{xpatch}% http://ctan.org/pkg/xpatch
+% \makeatletter
+% \xpatchcmd{\@ssect@ltx}{\@xsect}%
+%   {\edef\@currentlabelname{#8}\@xsect}{}{}% Patch \<section>*
+% \xpatchcmd{\@sect@ltx}{\@xsect}%
+%   {\edef\@currentlabelname{#8}\@xsect}{}{}% Patch \<section>
+% \makeatother
 
 \usepackage[colorlinks, plainpages=false,
 hyperfigures=true]{hyperref}
