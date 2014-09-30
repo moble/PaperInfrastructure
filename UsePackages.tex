@@ -91,69 +91,6 @@
 %%   I like to keep figures bigger.
 
 
-%% PGF/TIKZ
-\usepackage{tikz} %
-\usepackage{tikzscale} %
-\usepackage{tikz-3dplot}
-\usepackage{pgfplots} %
-\usepackage{pgfplotstable} %
-\pgfplotsset{compat=1.10} %
-\usetikzlibrary{calc}
-\usetikzlibrary{pgfplots.groupplots} %
-%\usetikzlibrary{decorations.shapes} %
-%\usetikzlibrary{decorations.markings} %
-%% Automatically write figures as PDFs for import next time
-\usetikzlibrary{pgfplots.external}
-\usepgfplotslibrary{fillbetween}
-\tikzexternalize
-% \tikzsetfigurename{Figure}
-% \tikzset{external/force remake} % To force reprocessing of plots
-%% Some nice defaults for me
-\def\axisdefaultwidth{246pt} %
-\def\axisdefaultheight{200pt} %
-\pgfplotsset{scaled ticks=false} %
-\pgfplotsset{axis line style={line width=1pt, black}} %
-\pgfplotsset{tick style={line width=1pt, black}} %
-\pgfplotsset{minor tick style={black}} %
-\pgfplotsset{every axis/.append style={%
-    axis on top, %
-    legend cell align=left, %
-    legend style={ %
-      at={(0.03,0.97)}, %
-      anchor=north west}, %
-    no markers, %
-  } %
-} %
-\pgfplotsset{every axis plot/.append style={thick, smooth}} %
-
-%% Command to allow explicitly setting the file counter, as, e.g.,
-%%   \tikzset{external/figure name={Figure}}
-%%   \tikzset{external/set counter={Figure}{2}}
-\makeatletter
-\pgfqkeys{/tikz/external}{%
-  set counter/.code 2 args={%
-    \expandafter\gdef\csname c@tikzext@no@#1\endcsname{#2}%
-  },%
-}
-\makeatother
-
-% %% The following colors come from <http://colorbrewer2.org/>, which
-% %% creates lists of nice colors for plots, etc.
-% \definecolor{cycleA}{RGB}{228,26,28}
-% \definecolor{cycleB}{RGB}{55,126,184}
-% \definecolor{cycleC}{RGB}{77,175,74}
-% \definecolor{cycleD}{RGB}{152,78,163}
-% \definecolor{cycleE}{RGB}{255,127,0}
-% \pgfplotscreateplotcyclelist{colorbrewer_set1}{%
-%   {cycleA},{cycleB},{cycleC},{cycleD},{cycleE}%
-% }
-
-%% After I created the above chunk, a new pgf library was introduced,
-%% which supplies colorbrewer cycles automatically.
-\usepgfplotslibrary{colorbrewer}
-%% Use with something like
-% \begin{axis}[colorbrewer cycle list=Dark2]
-
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "paper"

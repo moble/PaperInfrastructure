@@ -5,9 +5,10 @@ from os.path import join, exists
 from shutil import copy
 
 links_dir = 'PaperInfrastructure'
-links = ['Affiliations.tex', 'Preamble.tex', 'UsePackages.tex',
+links = ['Affiliations.tex', 'Preamble.tex', 'UsePackages.tex', 'UsePackages_tikz.tex',
          join('tikz-colorbrewer', 'tikzlibrarycolorbrewer.code.tex'),
-         join('tikz-colorbrewer', 'pgflibrarypgfplots.colorbrewer.code.tex')]
+         join('tikz-colorbrewer', 'pgflibrarypgfplots.colorbrewer.code.tex'),
+        ]
 templates_dir = join('PaperInfrastructure','Templates')
 templates = ['paper.tex', 'Macros.tex', 'Makefile']
 
