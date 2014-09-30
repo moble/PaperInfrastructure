@@ -21,3 +21,6 @@ git checkout master
 cd ..
 python PaperInfrastructure/InitializeNewPaper.py
 ```
+
+Note that the `colorbrewer` package for `TikZ`/`pgfplots` comes from
+(this github repo)[https://github.com/vtraag/tikz-colorbrewer].
