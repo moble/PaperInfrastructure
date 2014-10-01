@@ -24,7 +24,7 @@ python PaperInfrastructure/InitializeNewPaper.py
 At this point, you may want to add/commit things to your new
 superproject:
 ```bash
-git add *.tex Makefile
+git add *.tex Makefile README.md LICENSE .gitignore
 git commit -m 'Set up paper infrastructure'
 ```
 Finally, if relevant, add a remote and push to it:
