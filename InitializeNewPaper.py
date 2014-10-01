@@ -15,7 +15,7 @@ original_links += [join(links_dir, 'tikz-colorbrewer', link) for link in tikz_li
 
 # We will copy a few template files to the working directory for editing
 templates_dir = join('PaperInfrastructure','Templates')
-templates = ['paper.tex', 'Macros.tex', 'Makefile']
+templates = ['paper.tex', 'Macros.tex', 'Makefile', 'LICENSE', 'README.md', '.gitignore']
 original_templates = [join(templates_dir, template) for template in templates]
 
 # Check that the files are in the right relative places (because this
