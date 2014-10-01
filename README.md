@@ -29,7 +29,7 @@ git commit -m 'Set up paper infrastructure'
 ```
 Finally, if relevant, add a remote and push to it:
 ```bash
-git remote add origin https://github.com/moble/<remote_repo_URL.git>
+git remote add origin https://github.com/moble/<remote_repo_URL>.git
 git push origin master
 ```
 
