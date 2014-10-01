@@ -21,6 +21,17 @@ git checkout master
 cd ..
 python PaperInfrastructure/InitializeNewPaper.py
 ```
+At this point, you may want to add/commit things to your new
+superproject:
+```bash
+git add *.tex Makefile
+git commit -m 'Set up paper infrastructure'
+```
+Finally, if relevant, add a remote and push to it:
+```bash
+git remote add origin https://github.com/moble/<remote_repo_URL.git>
+git push origin master
+```
 
 Note that the `colorbrewer` package for `TikZ`/`pgfplots` comes from
 [this github repo](https://github.com/vtraag/tikz-colorbrewer).
