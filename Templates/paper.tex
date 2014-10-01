@@ -85,9 +85,9 @@ twoside]{revtex4-1}
 Some really cool introduction, explaining the context of this work,
 why it needs to be done, how it will change the world, etc.  Grab the
 reader's attention so s/he cares enough to keep reading.  Cite
-appropriate sources~\cite{MTW, Wald:1984} for the context, including
-any other approaches to this particular
-problem~\cite{doranlasenby:2003}.
+appropriate sources~\cite{Misner1973, Wald1984} for the context,
+including any other approaches to this particular
+problem~\cite{Doran2003}.
 
 Explain how this paper attacks that problem (and why other approaches
 need to be improved, if relevant).  Summarize everything that is done
@@ -249,8 +249,13 @@ your career.
 \let\i\Originalidefinition
 
 %% Include any .bib files that need to be referenced, with `.bib`
-%% removed, separated by commas without spaces
-\bibliography{AnalyticalWaveforms,Astro,Detection,General,GeometricAlgebra,NumericalRelativity,ParameterEstimation,Scri}
+%% removed, separated by commas without spaces.
+\bibliography{references}
+%% My standard way of working with references is to use the `zotelo`
+%% emacs mode, where I tell zotelo which collection in my Zotero
+%% database I want to use with `zotelo-set-collection` (which may be
+%% updated with `zotelo-update-database`).  The collection is then
+%% exported as bibtex into the first file named above.
 
 %%%%%%%%%%%%%%
 
@@ -262,4 +267,5 @@ your career.
 %%% Local Variables:
 %%% mode: latex
 %%% TeX-master: t
+%%% zotero-collection: #("125" 0 3 (name "Papers/PaperTemplate"))
 %%% End:
