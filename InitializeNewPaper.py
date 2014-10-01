@@ -4,17 +4,22 @@ from os import symlink
 from os.path import join, exists
 from shutil import copy
 
+# We will create some symlinks in the working directory
 links_dir = 'PaperInfrastructure'
-links = ['Affiliations.tex', 'Preamble.tex', 'UsePackages.tex', 'UsePackages_tikz.tex',
-         join('tikz-colorbrewer', 'tikzlibrarycolorbrewer.code.tex'),
-         join('tikz-colorbrewer', 'pgflibrarypgfplots.colorbrewer.code.tex'),]
+links = ['Affiliations.tex', 'Preamble.tex', 'UsePackages.tex', 'UsePackages_tikz.tex',]
+original_links = [join(links_dir, link) for link in links]
+tikz_links = ['tikzlibrarycolorbrewer.code.tex', 'pgflibrarypgfplots.colorbrewer.code.tex',]
+links += tikz_links
+original_links += [join(links_dir, 'tikz-colorbrewer', link) for link in tikz_links]
+
+
+# We will copy a few template files to the working directory for editing
 templates_dir = join('PaperInfrastructure','Templates')
 templates = ['paper.tex', 'Macros.tex', 'Makefile']
+original_templates = [join(templates_dir, template) for template in templates]
 
 # Check that the files are in the right relative places (because this
 # script could be used from the wrong place).
-original_links = [join(links_dir,link) for link in links]
-original_templates = [join(templates_dir, template) for template in templates]
 for f in original_links + original_templates:
     if not exists(f):
         print("File '{0}' cannot be found.\n".format(f)
