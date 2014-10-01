@@ -16,7 +16,7 @@ from os.path import join
 
 ## Name the files to be included here.  Note that paper.tex and
 ## Macros.tex get special handling, so they should not be listed here.
-TeXFiles = ['UsePackages.tex', 'Preamble.tex', 'Affiliations.tex', 'WaveformSpinModes.tex', 'xpatch.sty']
+TeXFiles = ['UsePackages.tex', 'Preamble.tex', 'Affiliations.tex',]
 FigureFiles = list( glob('paper-figure*pdf') )
 CodeFiles = []
 
