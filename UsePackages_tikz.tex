@@ -34,6 +34,12 @@
   } %
 } %
 \pgfplotsset{every axis plot/.append style={thick, smooth}} %
+\tikzset{
+  every picture/.style={font issue=\fontsize{9}{10.5}},
+  font issue/.style={execute at begin picture={#1\selectfont}}
+}
+
+
 
 %% Command to allow explicitly setting the file counter, as, e.g.,
 %%   \tikzset{external/figure name={Figure}}
