@@ -59,7 +59,11 @@
 
 %% After I created the above chunk, a new pgf library was introduced,
 %% which supplies colorbrewer cycles automatically.
-\usepgfplotslibrary{colorbrewer}
+\makeatletter
+\input{tikz-colorbrewer/tikzlibrarycolorbrewer.code.tex}
+\input{tikz-colorbrewer/pgflibrarypgfplots.colorbrewer.code.tex}
+\makeatother
+% \usepgfplotslibrary{colorbrewer}
 %% Use with something like
 % \begin{axis}[colorbrewer cycle list=Dark2]
 
