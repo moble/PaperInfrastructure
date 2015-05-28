@@ -79,22 +79,25 @@
 \DeclareSymbolFont{tipa}{T3}{tipa}{m}{n}
 \DeclareMathAccent{\ibreve}{\mathalpha}{tipa}{'020}
 \newcommand{\Rotated}[1]{\ensuremath{\ibreve{#1}}}
-\newcommand{\Rotation}[1]{\ensuremath{\mathbf{#1}}}
-%\newcommand{\Generator}[1]{\ensuremath{\mathfrak{\MakeLowercase{#1}}}}
-\newcommand{\Generator}[1]{\ensuremath{\MakeUppercase{#1}}}
+\newcommand{\Rotation}[1]{\mathbf{\MakeUppercase{#1}}}
+\newcommand{\LieElement}[1]{\mathbf{\MakeUppercase{#1}}}
+\newcommand{\LieGenerator}[1]{\mathbf{\MakeLowercase{#1}}}
+\newcommand{\LieGeneratorMag}[1]{\mathrm{\MakeLowercase{#1}}}
 \newcommand{\GeneratorVec}[1]{\ensuremath{\vec{\MakeLowercase{#1}}}}
 \DeclareMathOperator{\adjoint}{ad}
 \DeclareMathOperator{\Adjoint}{Ad}
-\newcommand{\ad}[1]{\adjoint_{\Generator{#1}}}
-\newcommand{\Ad}[1]{\Adjoint_{\Generator{#1}}}
+\newcommand{\ad}[1]{\adjoint_{\LieGenerator{#1}}}
+\newcommand{\Ad}[1]{\Adjoint_{\LieGenerator{#1}}}
 \newcommandx{\structure}[3][2={}, 3={}]{f^{#1 #2}_{#3}}
 
-\newcommand{\SO}[1]{\ensuremath{\mathit{SO}(#1)}}
+\newcommand{\SO}[1]{\ensuremath{\mathrm{SO}(#1)}}
 \newcommand{\so}[1]{\ensuremath{\mathfrak{so}(#1)}}
-\newcommand{\SOp}[1]{\ensuremath{\mathit{SO}^{+}(#1)}}
+\newcommand{\SOp}[1]{\ensuremath{\mathrm{SO}^{+}(#1)}}
 \newcommand{\sop}[1]{\ensuremath{\mathfrak{so}^{+}(#1)}}
-\newcommand{\SU}[1]{\ensuremath{\mathit{SU}(#1)}}
+\newcommand{\SU}[1]{\ensuremath{\mathrm{SU}(#1)}}
 \newcommand{\su}[1]{\ensuremath{\mathfrak{su}(#1)}}
+\newcommand{\Spin}[1]{\ensuremath{\mathrm{Spin}(#1)}}
+\newcommand{\spin}[1]{\ensuremath{\mathfrak{so}(#1)}}
 
 
 %% Metric perturbation
