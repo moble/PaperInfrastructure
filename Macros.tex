@@ -38,9 +38,20 @@
 \newcommand{\co}[1]{\ensuremath{\bar{#1}}}
 \DeclareMathOperator*{\RS}{RiemannSymmetrize}
 \DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\arccot}{arccot}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
+% \DeclareMathOperator{\arcsin}{arcsin}
+% \DeclareMathOperator{\arccos}{arccos}
+% \DeclareMathOperator{\arctan}{arctan}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\asinh}{asinh}
+\DeclareMathOperator{\acosh}{acosh}
+\DeclareMathOperator{\atanh}{atanh}
+\DeclareMathOperator{\acsch}{acsch}
+\DeclareMathOperator{\asech}{asech}
+\DeclareMathOperator{\acoth}{acoth}
 
 %% Relational operators
 \newcommand{\defined}{\coloneqq}
@@ -142,12 +153,13 @@
 \newcommand{\Vector}[1]{\FourVector{#1}}
 
 %% Three-vector
-\newcommand{\ThreeVector}[1]{\vec{#1}}
+\newcommand{\ThreeVector}[1]{\Vector{#1}}
 
-\newcommand{\fourvec}[1]{\bm{#1}}
+\newcommand{\fourvec}[1]{\FourVector{#1}}
 % \renewcommand{\threevec}[1]{\ensuremath{\vec{#1}}}
 % \newcommand{\threevec}{\fourvec}
 % \newcommand{\unitvec}[1]{\hat{\fourvec{#1}}}
+\newcommand{\threevec}{\Vector}
 \newcommand{\rHat}{\unitvec{r}}
 \newcommand{\nHat}{\unitvec{n}}
 \newcommand{\xHat}{\unitvec{x}}
