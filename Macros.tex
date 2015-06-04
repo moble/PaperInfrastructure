@@ -9,6 +9,69 @@
 \newcommand{\e}{\ensuremath{\mathrm{e}}}
 \let\Originalidefinition\i
 \renewcommand{\i}{\ensuremath{\mathrm{i}}}
+\DeclareSymbolFont{wasy}{U}{wasy}{m}{n}
+\DeclareMathSymbol{\thorn}{\mathord}{wasy}{105}
+\DeclareMathSymbol{\Thorn}{\mathord}{wasy}{106}
+\newcommand\Eth{\text{\DH}}
+\newcommand\Alpha{\mathrm{A}}
+\newcommand\Beta{\mathrm{B}}
+\newcommand\Epsilon{\mathrm{E}}
+\newcommand\Varepsilon{\mathit{E}}
+\newcommand\Zeta{\mathrm{Z}}
+\newcommand\Eta{\mathrm{H}}
+\newcommand\Vartheta{\varTheta}
+\newcommand\Iota{\mathrm{I}}
+\newcommand\Kappa{\mathrm{K}}
+\newcommand\Mu{\mathrm{M}}
+\newcommand\Nu{\mathrm{N}}
+\chardef\omicron=111 % For insurance against upcasing
+\chardef\Omicron=79  % For insurance against downcasing
+\newcommand{\Varpi}{\varPi}
+\newcommand\Rho{\mathrm{P}}
+\newcommand\Varrho{\mathit{P}}
+\newcommand\Varsigma{\varSigma}
+\newcommand\Varphi{\varPhi}
+\newcommand\Tau{\mathrm{T}}
+\newcommand\Chi{\mathrm{X}}
+\newcommand\MakeAllUppercase[1]{%
+  % Include eth, thorn, and Greek in MakeUppercase
+  \begingroup
+  \let\eth\Eth
+  \let\thorn\Thorn
+  \let\alpha\Alpha
+  \let\beta\Beta
+  \let\gamma\Gamma
+  \let\delta\Delta
+  \let\epsilon\Epsilon
+  \let\varepsilon\Varepsilon
+  \let\zeta\Zeta
+  \let\eta\Eta
+  \let\theta\Theta
+  \let\vartheta\Vartheta
+  \let\iota\Iota
+  \let\kappa\Kappa
+  \let\lambda\Lambda
+  \let\mu\Mu
+  \let\nu\Nu
+  \let\xi\Xi
+  \let\omicron\Omicron
+  \let\pi\Pi
+  \let\varpi\Varpi
+  \let\rho\Rho
+  \let\varrho\Varrho
+  \let\sigma\Sigma
+  \let\varsigma\Varsigma
+  \let\tau\Tau
+  \let\upsilon\Upsilon
+  \let\phi\Phi
+  \let\varphi\Varphi
+  \let\chi\Chi
+  \let\psi\Psi
+  \let\omega\Omega
+  \MakeUppercase{#1}%
+  \endgroup
+}
+
 
 %% Units
 \let\Originalcdefinition\c
